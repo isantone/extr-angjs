@@ -1,6 +1,6 @@
 import angular from 'angular';
 
-import './footer.scss';
+// import './footer.scss';
 import footerTemplate from './footer.html';
 
 class Footer {
@@ -12,6 +12,6 @@ class Footer {
 
 export const appFooter = {
   controller: Footer,
-  template: footerTemplate
+  template: footerTemplate,
 };
 

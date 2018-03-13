@@ -3,9 +3,9 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 //const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
-const extractSass = new ExtractTextPlugin({
+const extractCss = new ExtractTextPlugin({
 	filename: "style.css",
-	disable: process.env.NODE_ENV === "development"
+	//disable: process.env.NODE_ENV === "development"
 });
 
 module.exports = {
@@ -29,7 +29,7 @@ module.exports = {
 			{
 				test: /\.scss$/,
 				exclude: /node_modules/,
-				use: extractSass.extract({
+				use: extractCss.extract({
 					fallback: "style-loader",
 					use: [
 						{
@@ -68,7 +68,7 @@ module.exports = {
 	},
 	plugins: [
 		//new UglifyJsPlugin(),
-		extractSass,
+		extractCss,
 		new HtmlWebpackPlugin({
 			template: 'src/index.html',
 			inject: true,
