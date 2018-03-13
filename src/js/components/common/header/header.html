@@ -1,7 +1,7 @@
 <header id="pageHeader" class="header">
   <div id="headerContainer" class="header__container">
     <!-- <button id="navBtn" class="nav-btn mobile-btn header__nav-btn" onclick="toggleNav();"> -->
-      <button id="navBtn" class="nav-btn mobile-btn header__nav-btn" onclick="HeaderCtrl.showMenu();">
+      <button id="navBtn" class="nav-btn mobile-btn header__nav-btn" ng-click="appHeader.showMenu();">
       <span class="nav-btn__top"></span>
       <span class="nav-btn__mid"></span>
       <span class="nav-btn__bot"></span>
@@ -37,18 +37,14 @@
     </div>
   </div>
 
-  <!-- <div id="submenuContainer" class="desktop-menu__sub-menu hide">
-    {{#each this}}
-      <ul class="desktop-menu__sub-ul">
+  <div id="submenuContainer" class="desktop-menu__sub-menu hide">
+      <ul class="desktop-menu__sub-ul" ng-repeat="sport in appHeader.data">
         <li>
-          <a class="desktop-menu__sub-header" href="#categories/{{this.name}}/products">{{this.title}}</a>
+          <a class="desktop-menu__sub-header" href="#categories/{{sport.name}}/products">{{sport.title}}</a>
         </li>
-        {{#each catalog}}
-          <li class="desktop-menu__sub-btn">
-            <a href="#categories/{{this.name}}/products" class="desktop-menu__sub-link">{{this.title}}</a>
+          <li class="desktop-menu__sub-btn" ng-repeat="catalog in sport.catalog">
+            <a href="#categories/{{catalog.name}}/products" class="desktop-menu__sub-link">{{catalog.title}}</a>
           </li>
-        {{/each}}
       </ul>
-    {{/each}}
-  </div> -->
+  </div>
 </header>

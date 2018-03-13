@@ -12,4 +12,6 @@ import {appHeader} from './components/common/header/header.component.js';
 angular.module("ExtremeShop", [/*"router"*/])
   .component("appHeader", appHeader)
   .component("appFooter", appFooter)
+
+  //.controller("Header", a)
 ;
