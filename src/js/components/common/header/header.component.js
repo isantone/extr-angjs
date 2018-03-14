@@ -9,10 +9,10 @@ class Header {
 
     this.submenuContainer = document.getElementById("submenuContainer");
 
-    $http.get('http://localhost:3000/api/categories')
+    $http.get('http://localhost:3003/api/categories')
       .then((response) => {
         this.data = response.data;
-        console.log('AJAX data:', this.data);
+        console.log('appHeader AJAX data:', this.data);
       });
   }
 
