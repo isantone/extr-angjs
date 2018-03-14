@@ -1,7 +1,7 @@
 <header id="pageHeader" class="header">
   <div id="headerContainer" class="header__container">
     <!-- <button id="navBtn" class="nav-btn mobile-btn header__nav-btn" onclick="toggleNav();"> -->
-      <button id="navBtn" class="nav-btn mobile-btn header__nav-btn" ng-click="appHeader.showMenu();">
+      <button id="navBtn" class="nav-btn mobile-btn header__nav-btn" ng-click="appHeader.showMenu()">
       <span class="nav-btn__top"></span>
       <span class="nav-btn__mid"></span>
       <span class="nav-btn__bot"></span>
@@ -31,20 +31,26 @@
     </div>
     <div id="searchForm" class="search-form">
       <svg id="searchIcon" class="svg-btn search-form__fa-search" class="search-form__fa-search" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"></path></svg>
-      <input id="searchInput" class="search-form__input" type="text" placeholder="Search here..." required>
-      <div id="searchResults" class="search-form__results hide">
+      <input id="searchInput" class="search-form__input" type="text" placeholder="Search here..." ng-model="appHeader.searchQuery" ng-change="appHeader.searchProducts()" ng-focus="appHeader.showSearchResults()" ng-blur="appHeader.hideSearchResults()" required>
+      <div ng-if="appHeader.searchResults && appHeader.searchResults.length > 0" ng-show="appHeader.searchResultsVisibility" id="searchResults" class="search-form__results">
+        <a href="#products/{{searchResult.id}}" ng-repeat="searchResult in appHeader.searchResults">
+          <p class="search-form__result">{{searchResult.title}}</p>
+        </a>
       </div>
     </div>
   </div>
 
+  <div id="mobileOverlay" class="mobile-overlay hide" ng-click="appHeader.showMenu();">
+  </div>
+
   <div id="submenuContainer" class="desktop-menu__sub-menu">
-      <ul class="desktop-menu__sub-ul" ng-repeat="sport in appHeader.data">
-        <li>
-          <a class="desktop-menu__sub-header" href="#categories/{{sport.name}}/products">{{sport.title}}</a>
-        </li>
-          <li class="desktop-menu__sub-btn" ng-repeat="catalog in sport.catalog">
-            <a href="#categories/{{catalog.name}}/products" class="desktop-menu__sub-link">{{catalog.title}}</a>
-          </li>
-      </ul>
+    <ul class="desktop-menu__sub-ul" ng-repeat="sport in appHeader.data">
+      <li>
+        <a class="desktop-menu__sub-header" href="#categories/{{sport.name}}/products">{{sport.title}}</a>
+      </li>
+      <li class="desktop-menu__sub-btn" ng-repeat="catalog in sport.catalog">
+        <a href="#categories/{{catalog.name}}/products" class="desktop-menu__sub-link">{{catalog.title}}</a>
+      </li>
+    </ul>
   </div>
 </header>
