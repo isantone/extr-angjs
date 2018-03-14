@@ -13,7 +13,7 @@
     </div>
 
     <nav id="navContainer" class="desktop-menu__container">
-      <a id="catalogBtn" class="desktop-menu__btn" href="#">CATALOG</a>
+      <a id="catalogBtn" class="desktop-menu__btn" ng-click="appHeader.showMenu();" href="#">CATALOG</a>
       <a class="desktop-menu__btn" href="#">STORES</a>
       <a id="accountBtn" class="desktop-menu__btn" href="#">ACCOUNT</a>
     </nav>
@@ -37,7 +37,7 @@
     </div>
   </div>
 
-  <div id="submenuContainer" class="desktop-menu__sub-menu hide">
+  <div id="submenuContainer" class="desktop-menu__sub-menu">
       <ul class="desktop-menu__sub-ul" ng-repeat="sport in appHeader.data">
         <li>
           <a class="desktop-menu__sub-header" href="#categories/{{sport.name}}/products">{{sport.title}}</a>

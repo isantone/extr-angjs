@@ -9,29 +9,29 @@ class Header {
 
     this.submenuContainer = document.getElementById("submenuContainer");
 
+    this.navBtn = document.getElementById('navBtn');
+    this.navBtnTop = document.getElementsByClassName('nav-btn__top')[0];
+    this.navBtnMid = document.getElementsByClassName('nav-btn__mid')[0];
+    this.navBtnBot = document.getElementsByClassName('nav-btn__bot')[0];
+
     $http.get('http://localhost:3003/api/categories')
       .then((response) => {
         this.data = response.data;
         console.log('appHeader AJAX data:', this.data);
-      });
+      })
+      .catch((error) => {
+        console.warn(error.statusText || error.xhrStatus || 'Network error');
+      })
   }
 
   showMenu() {
-    console.log('showMenu Working');
+    //this.submenuContainer.classList.toggle("hide");
+    this.submenuContainer.classList.toggle("menu_opened");
 
-    this.submenuContainer.classList.toggle("hide");
-
-    let navBtn = document.getElementById('navBtn');
-    let navBtnTop = document.getElementsByClassName('nav-btn__top')[0];
-    let navBtnMid = document.getElementsByClassName('nav-btn__mid')[0];
-    let navBtnBot = document.getElementsByClassName('nav-btn__bot')[0];
-
-    //navBtn.addEventListener('click', function(e) {
-      navBtn.classList.toggle('nav-btn_opened');
-      navBtnTop.classList.toggle('nav-btn__top_opened');
-      navBtnMid.classList.toggle('nav-btn__mid_opened');
-      navBtnBot.classList.toggle('nav-btn__bot_opened');
-    //});
+    this.navBtn.classList.toggle('nav-btn_opened');
+    this.navBtnTop.classList.toggle('nav-btn__top_opened');
+    this.navBtnMid.classList.toggle('nav-btn__mid_opened');
+    this.navBtnBot.classList.toggle('nav-btn__bot_opened');
   }
 }
 

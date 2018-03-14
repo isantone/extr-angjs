@@ -1,36 +1,41 @@
-.nav-btn {  
+.nav-btn {
   &__top, &__mid, &__bot {
     display: block;
+    position: relative;
 
     //border-radius: 4px;
     height: 2px;
     width: 25px;
+
+    left: 0px;
+
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 4px;
-    
-    background: #696969; //white;    
+
+    background: #696969; //white;
     transform: rotate(0deg);
-    transition: .2s ease all;
+    transition: .3s ease all;
   }
-  
+
   &:focus {
     outline-width: 0;
   }
-  
+
   &__bot {
     margin-bottom: 0;
   }
-  
+
   &__top_opened {
     transform: rotate(45deg);
     transform-origin: 15% 15%;
   }
-  
+
   &__mid_opened {
-    opacity: 0;
+    position: relative;
+    left: -40px;
   }
-  
+
   &__bot_opened {
     transform: rotate(-45deg);
     transform-origin: 15% 95%;

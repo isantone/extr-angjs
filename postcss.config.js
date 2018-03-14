@@ -20,7 +20,9 @@ function isProdNodeEnv() {
 function productionPlugins() {
   return [
     autoprefixer,
-    mqpacker,
+    mqpacker({
+      sort: true,
+    }),
     cssnano,
   ]
 }
@@ -28,6 +30,8 @@ function productionPlugins() {
 function defaultPlugins() {
   return [
     autoprefixer,
-    mqpacker,
+    mqpacker({
+      sort: true,
+    }),
   ]
 }
