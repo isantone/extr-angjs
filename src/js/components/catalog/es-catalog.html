@@ -1,6 +1,6 @@
 <main id="pageContent" class="index-page">
   <!--<img src="http://localhost:3000/images/promo/1.jpg">-->
-    <div class="catalog__container" ng-repeat="category in catalog.data">
+    <div class="catalog__container" ng-repeat="category in $ctrl.data">
       <div class="catalog__header-container">
         <a href="#categories/{{category.name}}/products">
           <h2>{{category.title}}</h2>

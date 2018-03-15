@@ -4,23 +4,23 @@ import angularTouch from 'angular-touch';
 import '../scss/main.scss';
 
 /// COMPONENTS ///
-import {appFooter} from './components/common/footer/footer.component.js';
-import {appHeader} from './components/common/header/header.component.js';
+import {esFooter} from './components/common/footer/es-footer.component.js';
+import {esHeader} from './components/common/header/es-header.component.js';
 
-import {catalog} from './components/catalog/catalog.component.js';
+import {esCatalog} from './components/catalog/es-catalog.component.js';
 /////////////////
 
 /// SERVICES ///
-import CatalogService from './services/catalog.service.js'
+import esCatalogService from './services/es-catalog.service.js';
 ////////////////
 
 angular.module("ExtremeShop", ['ngTouch'/*"router"*/])
-  .component("appHeader", appHeader)
-  .component("appFooter", appFooter)
+  .component("esHeader", esHeader)
+  .component("esFooter", esFooter)
 
-  .component("catalog", catalog)
+  .component("esCatalog", esCatalog)
 
-  .service("catalogService", CatalogService)
+  .service("esCatalogService", esCatalogService)
 
   //.controller("Header", a)
 ;

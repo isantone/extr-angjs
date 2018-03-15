@@ -1,17 +1,17 @@
 import angular from 'angular';
 
 // import './footer.scss';
-import footerTemplate from './footer.html';
+import esFooterTemplate from './es-footer.html';
 
-class Footer {
+class EsFooter {
   constructor() {
     this.name = 'Footer';
     console.log("Footer Here!");
   }
 }
 
-export const appFooter = {
-  controller: Footer,
-  template: footerTemplate,
+export const esFooter = {
+  controller: EsFooter,
+  template: esFooterTemplate,
 };
 

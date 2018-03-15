@@ -1,7 +1,7 @@
 <header id="pageHeader" class="header">
   <div id="headerContainer" class="header__container">
     <!-- <button id="navBtn" class="nav-btn mobile-btn header__nav-btn" onclick="toggleNav();"> -->
-    <button id="navBtn" class="nav-btn mobile-btn header__nav-btn" ng-click="appHeader.showMenu()">
+    <button id="navBtn" class="nav-btn mobile-btn header__nav-btn" ng-click="$ctrl.showMenu()">
       <span class="nav-btn__top"></span>
       <span class="nav-btn__mid"></span>
       <span class="nav-btn__bot"></span>
@@ -14,7 +14,7 @@
     </div>
 
     <nav id="navContainer" class="desktop-menu__container">
-      <a id="catalogBtn" class="desktop-menu__btn" ng-click="appHeader.showMenu();" href="#">CATALOG</a>
+      <a id="catalogBtn" class="desktop-menu__btn" ng-click="$ctrl.showMenu();" href="#">CATALOG</a>
       <a class="desktop-menu__btn" href="#">STORES</a>
       <a id="accountBtn" class="desktop-menu__btn" href="#">ACCOUNT</a>
     </nav>
@@ -33,20 +33,20 @@
 
     <div id="searchForm" class="search-form">
       <svg id="searchIcon" class="svg-btn search-form__fa-search" class="search-form__fa-search" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"></path></svg>
-      <input id="searchInput" class="search-form__input" type="text" placeholder="Search here..." ng-model="appHeader.searchQuery" ng-change="appHeader.searchProducts()" ng-focus="appHeader.showSearchResults()" ng-blur="appHeader.hideSearchResults()" required>
-      <div ng-if="appHeader.searchResults && appHeader.searchResults.length > 0" ng-show="appHeader.searchResultsVisibility" id="searchResults" class="search-form__results">
-        <a href="#products/{{searchResult.id}}" ng-repeat="searchResult in appHeader.searchResults | orderBy: 'title'">
+      <input id="searchInput" class="search-form__input" type="text" placeholder="Search here..." ng-model="$ctrl.searchQuery" ng-change="$ctrl.searchProducts()" ng-focus="$ctrl.showSearchResults()" ng-blur="$ctrl.hideSearchResults()" required>
+      <div ng-if="$ctrl.searchResults && $ctrl.searchResults.length > 0" ng-show="$ctrl.searchResultsVisibility" id="searchResults" class="search-form__results">
+        <a href="#products/{{searchResult.id}}" ng-repeat="searchResult in $ctrl.searchResults | orderBy: 'title'">
           <p class="search-form__result">{{searchResult.title}}</p>
         </a>
       </div>
     </div>
   </div>
 
-  <div id="mobileOverlay" class="mobile-overlay hide" ng-click="appHeader.showMenu();">
+  <div id="mobileOverlay" class="mobile-overlay hide" ng-click="$ctrl.showMenu();">
   </div>
 
-  <div id="submenuContainer" class="desktop-menu__sub-menu" ng-swipe-left="appHeader.showMenu();">
-    <ul class="desktop-menu__sub-ul" ng-repeat="sport in appHeader.data">
+  <div id="submenuContainer" class="desktop-menu__sub-menu" ng-swipe-left="$ctrl.showMenu();">
+    <ul class="desktop-menu__sub-ul" ng-repeat="sport in $ctrl.data">
       <li>
         <a class="desktop-menu__sub-header" href="#categories/{{sport.name}}/products">{{sport.title}}</a>
       </li>

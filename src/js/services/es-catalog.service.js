@@ -1,4 +1,4 @@
-export default class CatalogService {
+export default class esCatalogService {
   constructor($http) {
     this.msg = "Hello from CatalogService";
 
@@ -6,15 +6,10 @@ export default class CatalogService {
   }
 
   getData() {
-    if (this.data) {
-      debugger
-      return this.data;
-    }
-
     return this.http.get('http://localhost:3003/api/categories')
       .then((response) => {
-        this.data = response.data;
-        console.log('catalog service AJAX data:', this.data);
+        //this.data = response.data;
+        console.log('catalog service AJAX data:', response.data);
         return response.data;
       })
       .catch((error) => {

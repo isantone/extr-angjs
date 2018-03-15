@@ -1,10 +1,10 @@
 import angular from 'angular';
 
 // import './header.scss';
-import headerTemplate from './header.html';
+import esHeaderTemplate from './es-header.html';
 
-class Header {
-  constructor($http, catalogService) {
+class EsHeader {
+  constructor($http, esCatalogService) {
     console.log("appHeader Here!");
 
     this.http = $http;
@@ -18,20 +18,11 @@ class Header {
     this.navBtnMid = document.getElementsByClassName('nav-btn__mid')[0];
     this.navBtnBot = document.getElementsByClassName('nav-btn__bot')[0];
 
-    catalogService.getData()
-    .then((data) => {
-      this.data = data;
-      console.log(this.data);
-    });
-
-    // $http.get('http://localhost:3003/api/categories')
-    //   .then((response) => {
-    //     this.data = response.data;
-    //     console.log('appHeader AJAX data:', this.data);
-    //   })
-    //   .catch((error) => {
-    //     console.warn(error.statusText || error.xhrStatus || 'Network error');
-    //   });
+    esCatalogService.getData()
+      .then((data) => {
+        this.data = data;
+        console.log(this.data);
+      });
   }
 
   hideSearchResults() {
@@ -71,9 +62,9 @@ class Header {
   }
 }
 
-export const appHeader = {
-  controller: Header,
-  controllerAs: 'appHeader',
-  template: headerTemplate,
+export const esHeader = {
+  controller: EsHeader,
+  //controllerAs: 'appHeader',
+  template: esHeaderTemplate,
 };
 
