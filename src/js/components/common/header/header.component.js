@@ -4,7 +4,7 @@ import angular from 'angular';
 import headerTemplate from './header.html';
 
 class Header {
-  constructor($http) {
+  constructor($http, catalogService) {
     console.log("appHeader Here!");
 
     this.http = $http;
@@ -18,14 +18,20 @@ class Header {
     this.navBtnMid = document.getElementsByClassName('nav-btn__mid')[0];
     this.navBtnBot = document.getElementsByClassName('nav-btn__bot')[0];
 
-    $http.get('http://localhost:3003/api/categories')
-      .then((response) => {
-        this.data = response.data;
-        console.log('appHeader AJAX data:', this.data);
-      })
-      .catch((error) => {
-        console.warn(error.statusText || error.xhrStatus || 'Network error');
-      });
+    catalogService.getData()
+    .then((data) => {
+      this.data = data;
+      console.log(this.data);
+    });
+
+    // $http.get('http://localhost:3003/api/categories')
+    //   .then((response) => {
+    //     this.data = response.data;
+    //     console.log('appHeader AJAX data:', this.data);
+    //   })
+    //   .catch((error) => {
+    //     console.warn(error.statusText || error.xhrStatus || 'Network error');
+    //   });
   }
 
   hideSearchResults() {

@@ -71,11 +71,15 @@ $search-input-height: 36px;
 
   .search-form__result {
     padding: 10px;
-    border-bottom: 1px solid #e7e7e7;
+
     font-family: 'Roboto', $font-family;
 
+    border-bottom: 1px solid #e7e7e7;
+
+    background: #fafafa;
+
     &:hover {
-      background: #f8f8f8;
+      background: #fff;
     }
   }
 }

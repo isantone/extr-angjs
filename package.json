@@ -8,6 +8,7 @@
     "angular-route": "^1.6.9"
   },
   "devDependencies": {
+    "angular-touch": "^1.6.9",
     "awesome-typescript-loader": "^5.0.0-0",
     "css-loader": "^0.28.10",
     "css-mqpacker": "^6.0.2",
