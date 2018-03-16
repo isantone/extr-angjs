@@ -7,7 +7,7 @@ export function esRouteConfig($routeProvider) {
     })
 
     .when("/categories/:id/products", {
-      template: '<es-category></es-category>',
+      template: '<es-category id="pageContent" class="page-main"></es-category>',
     })
 
     .otherwise("/");

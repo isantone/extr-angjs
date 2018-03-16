@@ -1,11 +1,9 @@
-<div id="pageContent" class="page-main">
+<!-- <div id="pageContent" class="page-main"> -->
   <div class="page-main__content">
     <h2>Shop {{$ctrl.categoryId}} Gear</h2>
     <button id="viewChanger" class="button button_color button_auto-width tiny-bottom-margin">GRID / LIST</button>
     <main id="productsMain" class="page-main__products">
-      <!-- {{#each this}}
-        {{> product}}
-      {{/each}} -->
+      <es-product ng-repeat="product in $ctrl.data" product="product" class="product product_grid"></es-product>
     </main>
   </div>
-</div>;
+<!-- </div> -->

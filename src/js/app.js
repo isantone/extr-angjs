@@ -8,9 +8,12 @@ import '../scss/main.scss';
 import {esHeader} from './components/common/header/es-header.component';
 import {esFooter} from './components/common/footer/es-footer.component';
 
+import {esProduct} from './components/common/es-product/es-product.component';
+
 import {esCatalog} from './components/catalog/es-catalog.component';
 
 import {esCategory} from './components/es-category/es-category.component';
+
 /////////////////
 
 /// SERVICES ///
@@ -26,6 +29,7 @@ angular.module("ExtremeShop", ['ngTouch', 'ngRoute'])
   .component("esCatalog", esCatalog)
 
   .component("esCategory", esCategory)
+  .component("esProduct", esProduct)
 
   .service("esCatalogService", esCatalogService)
 
