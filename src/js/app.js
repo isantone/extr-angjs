@@ -5,17 +5,19 @@ import angularRoute from 'angular-route';
 import '../scss/main.scss';
 
 /// COMPONENTS ///
-import {esFooter} from './components/common/footer/es-footer.component.js';
-import {esHeader} from './components/common/header/es-header.component.js';
+import {esHeader} from './components/common/header/es-header.component';
+import {esFooter} from './components/common/footer/es-footer.component';
 
-import {esCatalog} from './components/catalog/es-catalog.component.js';
+import {esCatalog} from './components/catalog/es-catalog.component';
+
+import {esCategory} from './components/es-category/es-category.component';
 /////////////////
 
 /// SERVICES ///
-import esCatalogService from './services/es-catalog.service.js';
+import esCatalogService from './services/es-catalog.service';
 ////////////////
 
-import {esRouterConfig} from './route-config';
+import {esRouteConfig} from './router/es-route-config';
 
 angular.module("ExtremeShop", ['ngTouch', 'ngRoute'])
   .component("esHeader", esHeader)
@@ -23,9 +25,11 @@ angular.module("ExtremeShop", ['ngTouch', 'ngRoute'])
 
   .component("esCatalog", esCatalog)
 
+  .component("esCategory", esCategory)
+
   .service("esCatalogService", esCatalogService)
 
-  .config(esRouterConfig)
+  .config(esRouteConfig)
 
   //.controller("Header", a)
 ;
