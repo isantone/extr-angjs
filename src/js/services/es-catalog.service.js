@@ -1,19 +1,21 @@
 export default class esCatalogService {
+  // constructor() {
+  //   this.getDataPromiseObject = fetch('http://localhost:3003/api/categories')
+  //     .then(response => response.json());
+  // } TO-DO: WHY THIS IS NOT WORKING ?
+
   constructor($http) {
-    this.msg = "Hello from CatalogService";
-
-    this.http = $http;
-  }
-
-  getData() {
-    return this.http.get('http://localhost:3003/api/categories')
+    this.getDataPromiseObject = $http.get('http://localhost:3003/api/categories')
       .then((response) => {
-        //this.data = response.data;
-        console.log('catalog service AJAX data:', response.data);
+        console.log('Catalog-service data:', response.data);
         return response.data;
       })
       .catch((error) => {
         console.warn(error.statusText || error.xhrStatus || 'Network error');
       });
+  }
+
+  getData() {
+    return this.getDataPromiseObject;
   }
 }

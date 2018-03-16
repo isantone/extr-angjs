@@ -5,8 +5,6 @@ import esHeaderTemplate from './es-header.html';
 
 class EsHeader {
   constructor($http, esCatalogService) {
-    console.log("appHeader Here!");
-
     this.http = $http;
 
     this.mobileOverlay = document.getElementById('mobileOverlay');
@@ -20,8 +18,9 @@ class EsHeader {
 
     esCatalogService.getData()
       .then((data) => {
+        console.log('header data', data);
         this.data = data;
-        console.log(this.data);
+        console.log('Header data:', this.data);
       });
   }
 
@@ -42,7 +41,7 @@ class EsHeader {
         .then((response) => {
           this.searchResults = response.data;
           this.searchResultsVisibility = true;
-          console.log('Search AJAX data:', this.searchResults);
+          console.log('Search data:', this.searchResults);
         })
         .catch((error) => {
           console.warn(error.statusText || error.xhrStatus || 'Network error');
@@ -51,7 +50,6 @@ class EsHeader {
   }
 
   showMenu() {
-    //this.submenuContainer.classList.toggle("hide");
     this.mobileOverlay.classList.toggle("hide");
     this.submenuContainer.classList.toggle("menu_opened");
 
@@ -64,7 +62,6 @@ class EsHeader {
 
 export const esHeader = {
   controller: EsHeader,
-  //controllerAs: 'appHeader',
   template: esHeaderTemplate,
 };
 

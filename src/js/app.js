@@ -1,5 +1,6 @@
 import angular from 'angular';
 import angularTouch from 'angular-touch';
+import angularRoute from 'angular-route';
 
 import '../scss/main.scss';
 
@@ -14,13 +15,17 @@ import {esCatalog} from './components/catalog/es-catalog.component.js';
 import esCatalogService from './services/es-catalog.service.js';
 ////////////////
 
-angular.module("ExtremeShop", ['ngTouch'/*"router"*/])
+import {esRouterConfig} from './route-config';
+
+angular.module("ExtremeShop", ['ngTouch', 'ngRoute'])
   .component("esHeader", esHeader)
   .component("esFooter", esFooter)
 
   .component("esCatalog", esCatalog)
 
   .service("esCatalogService", esCatalogService)
+
+  .config(esRouterConfig)
 
   //.controller("Header", a)
 ;
