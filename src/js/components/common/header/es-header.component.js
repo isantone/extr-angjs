@@ -18,7 +18,6 @@ class EsHeader {
 
     esCatalogService.getData()
       .then((data) => {
-        console.log('header data', data);
         this.data = data;
         console.log('Header data:', this.data);
       });

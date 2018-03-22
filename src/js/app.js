@@ -18,6 +18,7 @@ import {esCategory} from './components/es-category/es-category.component';
 
 /// SERVICES ///
 import esCatalogService from './services/es-catalog.service';
+import esCatalogViewChanger from './services/es-catalog-view-changer.service';
 ////////////////
 
 import {esRouteConfig} from './router/es-route-config';
@@ -32,6 +33,7 @@ angular.module("ExtremeShop", ['ngTouch', 'ngRoute'])
   .component("esProduct", esProduct)
 
   .service("esCatalogService", esCatalogService)
+  .service("esCatalogViewChanger", esCatalogViewChanger)
 
   .config(esRouteConfig)
 
