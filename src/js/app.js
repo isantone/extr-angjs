@@ -37,5 +37,15 @@ angular.module("ExtremeShop", ['ngTouch', 'ngRoute'])
 
   .config(esRouteConfig)
 
-  //.controller("Header", a)
+  .run(esRunConfig)
 ;
+
+function esRunConfig($rootScope) {
+  $rootScope.$on("$routeChangeStart",(event, next, current) => {
+    console.log("Route change started"); // Show spinner
+  });
+
+  $rootScope.$on("$routeChangeSuccess",(event, next, current) => {
+    console.log("Route change successed"); // Remove spinner
+  });
+}

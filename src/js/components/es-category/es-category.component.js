@@ -9,9 +9,9 @@ class EsCategory {
   constructor($http, $routeParams, esCatalogViewChanger) {
     console.log('Category here!');
 
-    this.changeView = esCatalogViewChanger.changeView;
+    this.esCatalogViewChanger = esCatalogViewChanger;
 
-    this.categoryId = $routeParams.id;
+    this.categoryId = $routeParams.categoryId;
     let query = routes.category + this.categoryId + '/products';
 
     $http.get(query)
@@ -22,6 +22,10 @@ class EsCategory {
       .catch((error) => {
         console.warn(error.statusText || error.xhrStatus || 'Network error');
       });
+  }
+
+  changeView() {
+    this.esCatalogViewChanger.changeView();
   }
 }
 
