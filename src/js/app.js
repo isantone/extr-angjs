@@ -1,6 +1,6 @@
 import angular from 'angular';
 import angularTouch from 'angular-touch';
-import angularRoute from 'angular-route';
+import uiRouter from '@uirouter/angularjs';
 
 import '../scss/main.scss';
 
@@ -21,9 +21,12 @@ import esCatalogService from './services/es-catalog.service';
 import esCatalogViewChanger from './services/es-catalog-view-changer.service';
 ////////////////
 
-import {esRouteConfig} from './router/es-route-config';
+import {esUiRouteConfig} from './router/es-ui-route-config';
 
-angular.module("ExtremeShop", ['ngTouch', 'ngRoute'])
+angular.module("ExtremeShop", [
+  'ngTouch',
+  "ui.router"
+])
   .component("esHeader", esHeader)
   .component("esFooter", esFooter)
 
@@ -35,17 +38,17 @@ angular.module("ExtremeShop", ['ngTouch', 'ngRoute'])
   .service("esCatalogService", esCatalogService)
   .service("esCatalogViewChanger", esCatalogViewChanger)
 
-  .config(esRouteConfig)
+  .config(esUiRouteConfig)
 
   .run(esRunConfig)
 ;
 
 function esRunConfig($rootScope) {
-  $rootScope.$on("$routeChangeStart",(event, next, current) => {
+  $rootScope.$on("$stateChangeStart", (evt) => {
     console.log("Route change started"); // Show spinner
   });
 
-  $rootScope.$on("$routeChangeSuccess",(event, next, current) => {
+  $rootScope.$on("$stateChangeSuccess", (evt) => {
     console.log("Route change successed"); // Remove spinner
   });
 }

@@ -8,7 +8,7 @@
     </button>
 
     <div class="header__logo-wrapper">
-      <a class="non-text-link header__logo" href="#">
+      <a class="non-text-link header__logo" ui-sref="index">
       </a>
     </div>
 
@@ -47,10 +47,10 @@
   <div id="submenuContainer" class="desktop-menu__sub-menu" ng-swipe-left="$ctrl.showMenu();">
     <ul class="desktop-menu__sub-ul" ng-repeat="sport in $ctrl.data">
       <li>
-        <a class="desktop-menu__sub-header" href="#categories/{{sport.name}}/products">{{sport.title}}</a>
+        <a class="desktop-menu__sub-header" ui-sref="productList({ categoryId: sport.name })">{{sport.title}}</a>
       </li>
       <li class="desktop-menu__sub-btn" ng-repeat="catalog in sport.catalog">
-        <a href="#categories/{{catalog.name}}/products" class="desktop-menu__sub-link">{{catalog.title}}</a>
+        <a ui-sref="productList({ categoryId: catalog.name })" class="desktop-menu__sub-link">{{catalog.title}}</a>
       </li>
     </ul>
   </div>

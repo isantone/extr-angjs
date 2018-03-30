@@ -4,6 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "dependencies": {
+    "@uirouter/angularjs": "^1.0.15",
     "angular": "^1.6.9",
     "angular-route": "^1.6.9",
     "angular-touch": "^1.6.9"

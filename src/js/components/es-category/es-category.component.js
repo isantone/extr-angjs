@@ -6,12 +6,12 @@ import routes from '../../router/routes';
 import esCategoryTemplate from './es-category.html';
 
 class EsCategory {
-  constructor($http, $routeParams, esCatalogViewChanger) {
+  constructor($http, $stateParams, esCatalogViewChanger) {
     console.log('Category here!');
 
     this.esCatalogViewChanger = esCatalogViewChanger;
 
-    this.categoryId = $routeParams.categoryId;
+    this.categoryId = $stateParams.categoryId;
     let query = routes.category + this.categoryId + '/products';
 
     $http.get(query)

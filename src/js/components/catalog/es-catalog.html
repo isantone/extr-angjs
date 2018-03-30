@@ -1,13 +1,13 @@
 <main id="pageContent" class="index-page">
   <div class="catalog__container" ng-repeat="category in $ctrl.data">
     <div class="catalog__header-container">
-      <a ng-href="#!/categories/{{category.name}}/products">
+      <a ui-sref="productList({ categoryId: category.name })">
         <h2>{{category.title}}</h2>
       </a>
     </div>
     <div class="catalog__item-wrapper" ng-repeat="subCategory in category.catalog">
       <img class="catalog__image" ng-src="{{subCategory.image}}">
-      <a class="catalog__caption" ng-href="#!/categories/{{subCategory.name}}/products">{{subCategory.title}}</a>
+      <a class="catalog__caption" ui-sref="productList({ categoryId: subCategory.name })">{{subCategory.title}}</a>
     </div>
   </div>
 </main>
