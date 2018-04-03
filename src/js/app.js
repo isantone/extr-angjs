@@ -17,6 +17,8 @@ import {esCategory} from './components/es-category/es-category.component';
 /////////////////
 
 /// SERVICES ///
+import esInterceptorsConfig from './services/es-interceptors-config';
+
 import esCatalogService from './services/es-catalog.service';
 import esCatalogViewChanger from './services/es-catalog-view-changer.service';
 ////////////////
@@ -39,6 +41,8 @@ angular.module("ExtremeShop", [
   .service("esCatalogViewChanger", esCatalogViewChanger)
 
   .config(esUiRouteConfig)
+
+  .config(esInterceptorsConfig)
 
   .run(esRunConfig)
 ;

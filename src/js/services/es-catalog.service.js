@@ -10,9 +10,9 @@ export default class esCatalogService {
         console.log('Catalog-service data:', response.data);
         return response.data;
       })
-      .catch((error) => {
-        console.warn(error.statusText || error.xhrStatus || 'Network error');
-      });
+      .catch((errorMessage) => {
+        console.warn(errorMessage);
+      })
   }
 
   getData() {
