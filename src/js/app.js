@@ -8,9 +8,9 @@ import '../scss/main.scss';
 import {esHeader} from './components/common/header/es-header.component';
 import {esFooter} from './components/common/footer/es-footer.component';
 
-import {esProduct} from './components/common/es-product/es-product.component';
+import {esProductPreview} from './components/common/es-product-preview/es-product-preview.component';
 
-import {esCatalog} from './components/catalog/es-catalog.component';
+import {esCatalog} from './components/es-catalog/es-catalog.component';
 
 import {esCategory} from './components/es-category/es-category.component';
 
@@ -35,7 +35,7 @@ angular.module("ExtremeShop", [
   .component("esCatalog", esCatalog)
 
   .component("esCategory", esCategory)
-  .component("esProduct", esProduct)
+  .component("esProductPreview", esProductPreview)
 
   .service("esCatalogService", esCatalogService)
   .service("esCatalogViewChanger", esCatalogViewChanger)

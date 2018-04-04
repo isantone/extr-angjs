@@ -3,7 +3,7 @@
     <h2>Shop {{$ctrl.categoryId}} Gear</h2>
     <button id="viewChanger" class="button button_color button_auto-width tiny-bottom-margin" ng-click="$ctrl.changeView()">GRID / LIST</button>
     <main id="productsMain" class="page-main__products">
-      <es-product ng-repeat="product in $ctrl.data" product="product" class="product product_grid"></es-product>
+      <es-product-preview ng-repeat="product in $ctrl.data" product="product" class="product product_grid"></es-product-preview>
     </main>
   </div>
 <!-- </div> -->
